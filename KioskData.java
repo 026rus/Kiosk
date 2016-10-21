@@ -56,11 +56,11 @@ public class KioskData
 	private String 	strHoverOver 		= "* Hover over field for explanation";
 	private String	strCheckInOutLable	= "For Internal Use Only";
 	private String	strCheckInOutButton	= "Equipment Check In / Out";
-	private String	strTempBadgeButton	= "Get Temp Badge";
+	private String	strTempBadgeButton	= "Get Temp Access Badge";
 	private String 	strbtnSubmit 		= "Submit";
 	private String 	strrdbtnHp 			= "HPI";
 	private String 	strrdbtnOther 		= "Other";
-	private String 	strchckbxTempBadge 	= "Temp Badge";
+	private String 	strchckbxTempBadge 	= "Temp Access Badge";
 	private String 	toolTipHP			= "HP Employee";
 	private String 	toolTipOther		= "Randstad, Interview";
 	private String 	toolTipTempBadge	= "New Employee, Forgot Badge";
