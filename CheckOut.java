@@ -131,7 +131,8 @@ public class CheckOut
     }
     catch (NumberFormatException nfe)
     {
-      return false;
+    	KioskData.makelogs("is not en number : " + nfe.getMessage(), 0);
+    	return false;
     }
     return true;
   }
@@ -158,6 +159,7 @@ public class CheckOut
 					"Kiosk Printing Error!!!",
 					JOptionPane.ERROR_MESSAGE);
 			e.printStackTrace();
+			KioskData.makelogs(e.getMessage(), 0);
 		}
       }
     });
@@ -181,6 +183,7 @@ public class CheckOut
 					"Kiosk Printing Error!!!",
 					JOptionPane.ERROR_MESSAGE);
 			e.printStackTrace();		
+			KioskData.makelogs(e.getMessage(), 0);
 		}
       }
       
@@ -318,7 +321,6 @@ public class CheckOut
 			  }
 			  else
 			  {
-				  if (KioskData.debug) System.out.println("Cnasel wos presed or empty string entered");
 				  return false;
 			  }
 		  }
@@ -338,18 +340,6 @@ public class CheckOut
  
   private void enterDataOut() throws SQLException
   {
-	  
-	  if (KioskData.debug)
-	  {
-		  System.out.println("Tag: " + kioskdt.getEquipment_tag());
-		  System.out.println("Name: " + kioskdt.getEquipment_name());
-		  System.out.println("First name: " + kioskdt.getEquipment_firstname());
-		  System.out.println("Last name: " + kioskdt.getEquipment_lastname());
-		  System.out.println("Notes: " + kioskdt.getEquipment_notes());
-		  System.out.println("Entaring First name: " + kioskdt.getCheckinout_firstname());
-		  System.out.println("Entaring Last name: " + kioskdt.getCheckinout_lastname());
-		  System.out.println("Entaring Notes: " + kioskdt.getCheckinout_notes());
-	  }
 	  kioskDB.sendEquipment();
   }
   
@@ -365,16 +355,14 @@ public class CheckOut
 	  int optionPane=JOptionPane.YES_OPTION;;
 	  String[] equipArr = getEquipmentAll(tagnum);
 	  
-	  if (KioskData.debug)  System.out.println("The number of return arg = " + equipArr.length);
+	  KioskData.makelogs("The number of return arg = " + equipArr.length, 0);
 	  
-	  if (KioskData.debug) 
-		  for (int i=0; i< equipArr.length; i++)
-			  System.out.println("\t\t argument [ "+i+" ] = " + equipArr[i]);
+	  for (int i=0; i< equipArr.length; i++)
+		  KioskData.makelogs("\t\t argument [ "+i+" ] = " + equipArr[i], 0);
 	  	  
 	  if (equipArr.length < 4 )
 		  {
-		  	System.out.println("Some thing WRONG!!! no sich entery in the DB :"
-		  			+ equipArr.length + " : " +  tagnum );
+		  	KioskData.makelogs("Some thing WRONG!!! no sich entery in the DB :" + equipArr.length + " : " +  tagnum , 0);
 		  	enterEquipment(tagnum);
 		  	return false;
 		  }
@@ -392,7 +380,7 @@ public class CheckOut
 		  kioskdt.setEquipment_notes(equipArr[4]);
 	  }
 	  else 
-		  if (KioskData.debug) System.err.println("Insufficient information!!! (Equipment Data error)");
+		  KioskData.makelogs("Insufficient information!!! (Equipment Data error)", 0);
 	  
 	  kioskdt.setCheckinout_firstname(fn);
 	  kioskdt.setCheckinout_lastname(ln);
@@ -402,7 +390,7 @@ public class CheckOut
 	  if (((fn.toLowerCase().contains(equipArr[2].toLowerCase()))||(equipArr[2].toLowerCase().contains(fn.toLowerCase())) ) &&
 		 ( (ln.toLowerCase().contains(equipArr[3].toLowerCase()))||(equipArr[3].toLowerCase().contains(ln.toLowerCase())) ) )
 	  {
-		 if (KioskData.debug) System.out.println("Checking if first name any thing like the first name in the DB!!!");
+		KioskData.makelogs("Checking if first name any thing like the first name in the DB!!!", 0);
 	  }
 	  else
 	  {
@@ -412,7 +400,6 @@ public class CheckOut
 				    + " is it correct?",
 				    kioskdt.getTheTitle(),
 				    JOptionPane.YES_NO_OPTION);
-		  if (KioskData.debug) System.out.println("NO!!!");  
 	  }
 	  if (optionPane == JOptionPane.YES_OPTION)
 		  	return true;

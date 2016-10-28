@@ -120,6 +120,7 @@ public class KioskSetings
 		setValue();
 		setUI();
 		if (spframe != null) spframe.dispose();
+		KioskData.makelogs("new Kiosk Setings !", 0 );
 	}
 	
 	public void setFrame(JDialog dialog)
@@ -147,7 +148,7 @@ public class KioskSetings
 			
 	    } catch(Exception e)
 	    {
-	    	System.out.println(e.getMessage());
+	    	KioskData.makelogs(e.getMessage(), 0);
 	    }
 	}
 	

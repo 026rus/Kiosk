@@ -112,6 +112,7 @@ public class TempBadg
     });
     initialize();
     actions();
+    KioskData.makelogs("new TempBadg just bean called ", 0);
   }
   
   private void clean()
@@ -170,6 +171,7 @@ public class TempBadg
 					e.getMessage(),
 					"Kiosk Printing Error!!!",
 					JOptionPane.ERROR_MESSAGE);
+        	KioskData.makelogs(e.getMessage(), 0);
 			e.printStackTrace();
 		}
       }
@@ -193,6 +195,7 @@ public class TempBadg
 					e.getMessage(),
 					"Kiosk Printing Error!!!",
 					JOptionPane.ERROR_MESSAGE);
+        	KioskData.makelogs(e.getMessage(), 0);
 			e.printStackTrace();		
 		}
       }
@@ -274,20 +277,9 @@ public class TempBadg
     frame.getContentPane().add(this.btnReturn);
   }
 
-/* //////////////////////////////////////////////////////////////////////////////////////////////////
-  private void checkfile()
-  {
-	  String filepath = KioskData.progFolder +KioskData.checkInOutFile;
-	  if ( !inoutfile.checkFile( filepath ) )
-	  {
-		  String text = "Number,Equipment Name,First Name,Last Name,Notes,Data out,Data in";
-		  inoutfile.makefile(kioskdt.getProgFolder()+KioskData.checkInOutFile, text);
-	  }
-	  else
-		 if (KioskData.debug) System.out.println(KioskData.checkInOutFile + " is OK!");
-  }
-  */
- 
+/*
+ *  ////////////////////////////////////////////////////////////////////////////////////////////////// 
+ */
   private String[] getTempBadgeAll(String number) throws SQLException
   {
 	  return kioskDB.getTempBadge(number);
@@ -316,7 +308,7 @@ public class TempBadg
 			                      kioskdt.getTempBadgBarcodePromt()
 			                      + "",
 			                      "");
-			  if (KioskData.debug) System.out.println("The entered val = \'" + s + "\' Befor cheking in DB");
+			  KioskData.makelogs("The entered val = \'" + s + "\' Befor cheking in DB", 0);
 			  
 			  if ( (s != null) && !(s.equals("")) )
 			  {
@@ -332,7 +324,6 @@ public class TempBadg
 			  }
 			  else
 			  {
-				  if (KioskData.debug) System.out.println("Cnasel wos presed or empty string entered");
 				  return false;
 			  }
 		  }
@@ -406,7 +397,7 @@ public class TempBadg
 		  kioskdt.setTempbadge_notes(equipArr[4]);
 	  }
 	  else 
-		  if (KioskData.debug) System.err.println("Insufficient information!!! (Temb Dabge Data error)");
+		  KioskData.makelogs("Insufficient information!!! (Temb Dabge Data error)", 0);
 	  
 	  kioskdt.setChecktempbadge_firstname(fn);
 	  kioskdt.setChecktempbadge_lastname(ln);
@@ -416,7 +407,7 @@ public class TempBadg
 	  if (((fn.toLowerCase().contains(equipArr[2].toLowerCase()))||(equipArr[2].toLowerCase().contains(fn.toLowerCase())) ) &&
 		 ( (ln.toLowerCase().contains(equipArr[3].toLowerCase()))||(equipArr[3].toLowerCase().contains(ln.toLowerCase())) ) )
 	  {
-		 if (KioskData.debug) System.out.println("Checking if first name any thing like the first name in the DB!!!");
+		 KioskData.makelogs("Checking if first name any thing like the first name in the DB!!!", 0);
 	  }
 	  else
 	  {
@@ -426,7 +417,6 @@ public class TempBadg
 				    + " is it correct?",
 				    kioskdt.getTheTitle(),
 				    JOptionPane.YES_NO_OPTION);
-		  if (KioskData.debug) System.out.println("NO!!!");  
 	  }
 	  if (optionPane == JOptionPane.YES_OPTION)
 		  	return true;

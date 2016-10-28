@@ -35,25 +35,4 @@ public class RCKiosk
 		RCFile f = new RCFile(data);
 		f.saveFileText();
 	}
-/* ------------------------------------------------------------------------------------------------
-	public static void main(String[] args)
-	{
-		KioskData k = null;
-		try {
-			k = RCKiosk.getit();
-		} catch (SQLException e1) {
-			// TODO Auto-generated catch block
-			e1.printStackTrace();
-		}
-		// RCFile f = new RCFile(k);
-		
-		try {
-			RCKiosk.getnextID();
-		} catch (SQLException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
-		System.out.println(k.getInfo_Barcobe());
-	}
--------------------------------------------------------------------------------------------------*/
 }

@@ -30,6 +30,7 @@ public class KioskDB
 	KioskDB (KioskData indt)
 	{
 		dt = indt;
+		KioskData.makelogs("Makind new KioskData !", 0);
 	}
 	
 	public void setAllData(KioskData indt)
@@ -191,13 +192,6 @@ public String[] getTempBadge(String tempbadgeNumber) throws SQLException
 		TempBadge.add(rs.getString("firstname"));
 		TempBadge.add(rs.getString("lastname"));
 		TempBadge.add(rs.getString("notes"));
-	}
-	
-	if (KioskData.debug)
-	{
-		System.out.println("Insede TempBadge : ");
-		for (int i=0; i < TempBadge.size(); i++)
-			System.out.println("\t\t\t" + TempBadge.get(i).toString() );
 	}
 	
 	disconnectDB ();

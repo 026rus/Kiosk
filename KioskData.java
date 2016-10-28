@@ -63,6 +63,7 @@ public class KioskData
 	private String 	strchckbxTempBadge 	= "Temp Access Badge";
 	private String 	toolTipHP			= "HP Employee";
 	private String 	toolTipOther		= "Randstad, Interview";
+	private String	otherHint			= "Please fill in the field with your company name";
 	private String 	toolTipTempBadge	= "New Employee, Forgot Badge";
 	private String  toolTipTempBadgeNumber = "Enter number given by the security guard";
 	
@@ -151,7 +152,7 @@ public class KioskData
 	public static String checkInOutFile = "CheckInOut.csv";
 	public static String logfile = "kiosklog.txt";
 
-	public static final boolean debug = true;
+	public static final boolean debug = false;
 	public final boolean editfield = true;
 	
 	Date date = new Date();
@@ -868,6 +869,14 @@ public class KioskData
 	{
 		return Character.toUpperCase(line.charAt(0)) + line.substring(1).toLowerCase();
 		
+	}
+	public String getOtherHint()
+	{
+		return otherHint;
+	}
+	public void setOtherHint(String otherHint)
+	{
+		this.otherHint = otherHint;
 	}
 		
 }

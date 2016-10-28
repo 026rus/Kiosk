@@ -48,6 +48,7 @@ public class RCFile
 		setFileText();
 		kiosk = k;
 		rcf = kiosk.getProgFolder() + "kioskrc";
+		KioskData.makelogs("new RCFile just beab meked!" , 0);
 	}
 	public void setFileText()
 	{
@@ -151,6 +152,7 @@ public class RCFile
         	fout.close();
         } catch ( IOException e )
         {
+        	KioskData.makelogs(e.getMessage(), 0);
            e.printStackTrace();
         }	
 	}
@@ -321,7 +323,7 @@ public class RCFile
 			
 		} catch (Exception exp)
 		{
-			System.out.println("IndexOutOfBoundsException: " + exp.getMessage());
+			KioskData.makelogs("IndexOutOfBoundsException: " + exp.getMessage(), 0);
 		}
 	}
 ///////////////////////////////////////////////////////////////////////////////////////////////////

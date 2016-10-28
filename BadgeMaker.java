@@ -145,6 +145,7 @@ public class BadgeMaker
 		catch (Exception e)
 		{
 			e.printStackTrace();
+			KioskData.makelogs(e.getMessage(), 0);
 		}
 	}
 	
@@ -170,6 +171,7 @@ public class BadgeMaker
 		} catch (PrintException e)
 		{
 			e.printStackTrace();  
+			KioskData.makelogs(e.getMessage(), 0);
 		}    
 		is.close();  
 	}  
@@ -248,6 +250,7 @@ public class BadgeMaker
 		catch (Exception e)
 		{
 			e.printStackTrace();
+			KioskData.makelogs(e.getMessage(), 0);
 		}
 		
 	}
