@@ -31,7 +31,7 @@ public class KioskData
 ///////////////////////////////////////////////////////////////////////////////////////////////////
 	/* My verebels */
 	
-	public static final String version 	= "2.2.4";
+	public static final String version 	= "2.2.6";
 	
 	private final String urlDOM			= "jdbc:mysql://";
 	private final String urlEND			= "/kiosk";

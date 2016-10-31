@@ -594,10 +594,10 @@ public class Kiosk_GUI extends JFrame
 			{
 				if ((!rdbtnHp.isSelected()) && (!rdbtnOther.isSelected()))
 					rdbtnHp.setSelected(true);
-				textField_BgNumber.setBounds(tfildX + 380, nextLabel, 150, labelHeight);
+				textField_BgNumber.setBounds(tfildX + 440, nextLabel, 150, labelHeight);
 			} else
 			{
-				lbl_BgNumber.setBounds(tfildX + 410, nextLabel, 100, labelHeight);
+				lbl_BgNumber.setBounds(tfildX + 440, nextLabel, 100, labelHeight);
 
 			}
 		}
