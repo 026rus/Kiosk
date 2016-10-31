@@ -49,6 +49,7 @@ Temporary Items
 *.exe
 *.o
 *.so
+*~
 
 # Packages #
 ############
